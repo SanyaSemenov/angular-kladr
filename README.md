@@ -1,2 +1,2 @@
 # angular-kladr
-npm package for better experience of using kladr api service
+Angular 4+ package for better experience using kladr api service

@@ -1,6 +1,6 @@
 {
   "name": "angular-kladr",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "ngPackage": {
     "lib": {
       "entryFile": "src/index.ts"
@@ -101,7 +101,7 @@
     "ts-loader": "^4.4.2",
     "tslint": "^5.11.0",
     "typedoc": "^0.11.1",
-    "typescript": ">=2.7.2",
+    "typescript": ">=2.7.2 <2.10.0",
     "webpack": "4.16.3",
     "zone.js": "^0.8.26"
   },

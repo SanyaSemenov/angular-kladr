@@ -1,7 +1,6 @@
 export * from './base-response.interface';
 export * from './base.model';
 export * from './content-type.enum';
-export * from './kladr-request-params.model';
 export * from './search-context.model';
 export * from './with-parent.enum';
 export * from './type-code.enum';

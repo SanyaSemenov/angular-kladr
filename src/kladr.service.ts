@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { KladrRequestParams } from './kladr-request-params.model';
 import { BaseResponse } from './base-response.interface';
 import { Observable } from 'rxjs';
 import { Jsonp } from '@angular/http';
 import { map } from 'rxjs/operators';
+import { SearchContext } from './search-context.model';
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +17,7 @@ export class KladrService {
      * @param query of type KladrRequestParams
      * @returns Observable<BaseResponse> Observable with received data or error message
      */
-    api(query: KladrRequestParams): Observable<BaseResponse> {
+    api(query: SearchContext): Observable<BaseResponse> {
         let apiUrl = this.url + '?';
         Object.keys(query).forEach(key => {
             apiUrl += `${key}=${query[key]}&`;

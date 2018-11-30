@@ -13,7 +13,7 @@ $ npm install angular-kladr --save
 ```
 
 ## Setup
-### 1. Import KladrModule from *node_modules/angular-kladr* folder
+### 1. Import KladrModule from *node_modules/angular-kladr*
 
 ```typescript
 import { KladrModule } from 'angular-kladr';
@@ -54,14 +54,15 @@ export class AppComponent {
 
 ### Basic usage
 
-Basically, you need to create collection of type *Observable\<BaseResponse\>* imported from the package.
+Basically, you need to create collection of type *Observable\<BaseResponse\>*.
 ```typescript
 public cities: Observable<BaseResponse>;
 ```
+**NOTE:** *BaseResponse* type should also be imported from the package
 
 Then create FormControl, which you will get value from in order to pass it into kladr api request.
 
-Assign the request to the collection in the contructor as shown below:
+Assign the request to the collection in the contructor body as shown below:
 ```typescript
 constructor(private kladr$: KladrService) {
   this.cityControl = new FormControl('');
@@ -91,10 +92,10 @@ public cityControl: FormControl;
 
 Also, we need to know which city a client will choose to provide some kind of autocomplete
 ```typescript
-public shosenCity: BaseModel;
+public chosenCity: BaseModel;
 
 chooseCity(city: BaseModel) {
-  this.shosenCity = city;
+  this.chosenCity = city;
   this.cityControl.setValue(city.name);
 }
 ```

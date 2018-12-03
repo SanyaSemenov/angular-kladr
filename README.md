@@ -18,7 +18,7 @@ $ npm install angular-kladr --save
 ```typescript
 import { KladrModule } from 'angular-kladr';
 ```
-Add imported module to the *imports* section in NgModule decorator
+Add imported module to the *imports* section in NgModule decorator.
 ```typescript
 @NgModule({
   .
@@ -26,10 +26,18 @@ Add imported module to the *imports* section in NgModule decorator
   .
   imports: [
     :
-    KladrModule;
+    KladrModule.forRoot({
+      isSecure: true
+    });
   ]
 })
 ```
+
+There is an option *isSecure* for confguring whether to send secure requests (under https protocol) or not.
+
+You can skip adding options. By default, there is an insecure connection configured.
+
+**NOTE:** *forRoot* method is required
 
 ### 2. Inject service into your component/service constructor
 
@@ -90,7 +98,7 @@ public cities: Observable<BaseResponse>;
 public cityControl: FormControl;
 ```
 
-Also, we need to know which city a client will choose to provide some kind of autocomplete
+#### Also, we need to know which city a client will choose to provide some kind of autocomplete
 ```typescript
 public chosenCity: BaseModel;
 
@@ -99,7 +107,7 @@ chooseCity(city: BaseModel) {
   this.cityControl.setValue(city.name);
 }
 ```
-To make this work let's add some html code in our template:
+#### To make this work let's add some html code in our template:
 ```html
 <div>
   <label for="city">Choose city</label>

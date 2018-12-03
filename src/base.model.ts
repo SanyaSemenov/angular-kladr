@@ -8,4 +8,5 @@ export class BaseModel {
     typeShort?: string;
     okato?: string;
     contentType?: ContentType;
+    parents?: BaseModel[];
 }

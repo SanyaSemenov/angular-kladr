@@ -1,17 +1,21 @@
 import { KladrService, KladrModule, ContentType, BaseResponse } from '../src';
 import { TestBed, inject, async } from '@angular/core/testing';
 import { AppComponent } from './helpers/app.component';
+import { Options } from '../src';
 
 describe('AppComponent', () => {
   let testBedService: KladrService;
   let fixture;
+  const options: Options = {
+    isSecure: true
+  };
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
       imports: [
-        KladrModule
+        KladrModule.forRoot(options)
       ],
       providers: []
     }).compileComponents();

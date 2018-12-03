@@ -7,3 +7,5 @@ export * from './type-code.enum';
 export * from './with-parent.enum';
 export * from './kladr.module';
 export * from './kladr.service';
+export * from './options';
+export * from './tokens';

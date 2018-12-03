@@ -1,3 +1,7 @@
+# [0.1.0](https://github.com/SanyaSemenov/angular-kladr/compare/v0.0.4...v0.1.0) (2018-12-03)
+
+
+
 ## [0.0.4](https://github.com/SanyaSemenov/angular-kladr/compare/v0.0.3...v0.0.4) (2018-11-30)
 
 

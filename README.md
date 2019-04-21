@@ -80,7 +80,7 @@ constructor(private kladr$: KladrService) {
       takeUntil(this.ngUnsubscribe),
       debounceTime(100),
       switchMap(value => {
-        const context: SearchContext = {
+        const context: KladrSearchContext = {
           ...this.regionContext,
           query: value
         };
@@ -89,7 +89,7 @@ constructor(private kladr$: KladrService) {
     );
 }
 private ngUnsubscribe = new Subject<void>();
-private regionContext: SearchContext = {
+private regionContext: KladrSearchContext = {
   limit: 10,
   contentType: KladrContentType.region
 };
@@ -100,9 +100,9 @@ public cityControl: FormControl;
 
 #### Also, we need to know which city a client will choose to provide some kind of autocomplete
 ```typescript
-public chosenCity: BaseModel;
+public chosenCity: KladrItem;
 
-chooseCity(city: BaseModel) {
+chooseCity(city: KladrItem) {
   this.chosenCity = city;
   this.cityControl.setValue(city.name);
 }
@@ -150,7 +150,7 @@ export class AppModule { }
 2. app.component.ts :
 ```typescript
 import { Component } from '@angular/core';
-import { KladrService, KladrResponse, SearchContext, KladrContentType, BaseModel } from 'angular-kladr';
+import { KladrService, KladrResponse, KladrSearchContext, KladrContentType, KladrItem } from 'angular-kladr';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil, debounceTime, switchMap } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
@@ -169,7 +169,7 @@ export class AppComponent {
         takeUntil(this.ngUnsubscribe),
         debounceTime(100),
         switchMap(value => {
-          const context: SearchContext = {
+          const context: KladrSearchContext = {
             ...this.regionContext,
             query: value
           };
@@ -179,16 +179,16 @@ export class AppComponent {
   }
 
   private ngUnsubscribe = new Subject<void>();
-  private regionContext: SearchContext = {
+  private regionContext: KladrSearchContext = {
     limit: 10,
     contentType: KladrContentType.region
   };
 
   public cities: Observable<KladrResponse>;
   public cityControl: FormControl;
-  public chosenCity: BaseModel;
+  public chosenCity: KladrItem;
 
-  chooseCity(city: BaseModel) {
+  chooseCity(city: KladrItem) {
     this.chosenCity = city;
     this.cityControl.setValue(city.name);
   }

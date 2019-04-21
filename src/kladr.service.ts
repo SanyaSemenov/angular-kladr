@@ -3,7 +3,7 @@ import { KladrResponse } from './base-response.interface';
 import { Observable } from 'rxjs';
 import { Jsonp } from '@angular/http';
 import { map } from 'rxjs/operators';
-import { SearchContext } from './search-context.model';
+import { KladrSearchContext } from './kladr-search-context.interface';
 import { KLADR_OPTIONS } from './tokens';
 import { Options } from './options';
 
@@ -27,7 +27,7 @@ export class KladrService {
      * @param query of type KladrRequestParams
      * @returns Observable<KladrResponse> Observable with received data or error message
      */
-    api(query: SearchContext): Observable<KladrResponse> {
+    api(query: KladrSearchContext): Observable<KladrResponse> {
         let apiUrl = this.url + '?';
         Object.keys(query).forEach(key => {
             apiUrl += `${key}=${query[key]}&`;

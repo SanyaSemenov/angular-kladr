@@ -1,4 +1,4 @@
-export enum WithParent {
+export enum KladrWithParent {
     /**
      * Выдача с родительскими объектами
      * @type {number}

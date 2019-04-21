@@ -1,4 +1,4 @@
-export enum TypeCode {
+export enum KladrCodeType {
     /**
      * города
      * @type {number}

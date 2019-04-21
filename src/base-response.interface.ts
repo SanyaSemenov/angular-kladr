@@ -1,7 +1,7 @@
-import { SearchContext } from './search-context.model';
-import { BaseModel } from './base.model';
+import { KladrSearchContext } from './kladr-search-context.interface';
+import { KladrItem } from './kladr-item.interface';
 
 export interface KladrResponse {
-    searchContext: SearchContext;
-    result: Array<BaseModel>;
+    searchContext: KladrSearchContext;
+    result: Array<KladrItem>;
 }

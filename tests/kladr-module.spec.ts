@@ -1,4 +1,4 @@
-import { KladrService, KladrModule, ContentType, BaseResponse } from '../src';
+import { KladrService, KladrModule, KladrContentType, KladrResponse } from '../src';
 import { TestBed, inject, async } from '@angular/core/testing';
 import { AppComponent } from './helpers/app.component';
 import { Options } from '../src';
@@ -34,8 +34,8 @@ describe('AppComponent', () => {
   it('should get reponse',
     async(
       inject([KladrService], (kladr$: KladrService) => {
-        kladr$.api({ limit: 5, contentType: ContentType.region, query: 'М' })
-          .subscribe((result: BaseResponse) => expect(result.result).toBeTruthy());
+        kladr$.api({ limit: 5, contentType: KladrContentType.region, query: 'М' })
+          .subscribe((result: KladrResponse) => expect(result.result).toBeTruthy());
       })
     )
   );

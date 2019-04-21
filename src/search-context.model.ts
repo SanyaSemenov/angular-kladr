@@ -1,4 +1,4 @@
-import { ContentType } from './content-type.enum';
+import { KladrContentType } from './content-type.enum';
 import { WithParent } from './with-parent.enum';
 import { TypeCode } from './type-code.enum';
 import { OneString } from './one-string.enum';
@@ -6,7 +6,7 @@ import { OneString } from './one-string.enum';
 export class SearchContext {
     token?: string;
     key?: string;
-    contentType?: ContentType;
+    contentType?: KladrContentType;
     query?: string;
     withParent?: WithParent;
     limit?: number;

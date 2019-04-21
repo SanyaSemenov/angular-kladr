@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { BaseResponse } from './base-response.interface';
+import { KladrResponse } from './base-response.interface';
 import { Observable } from 'rxjs';
 import { Jsonp } from '@angular/http';
 import { map } from 'rxjs/operators';
@@ -25,9 +25,9 @@ export class KladrService {
     /**
      * Makes api request
      * @param query of type KladrRequestParams
-     * @returns Observable<BaseResponse> Observable with received data or error message
+     * @returns Observable<KladrResponse> Observable with received data or error message
      */
-    api(query: SearchContext): Observable<BaseResponse> {
+    api(query: SearchContext): Observable<KladrResponse> {
         let apiUrl = this.url + '?';
         Object.keys(query).forEach(key => {
             apiUrl += `${key}=${query[key]}&`;
@@ -35,7 +35,7 @@ export class KladrService {
         apiUrl += 'callback=JSONP_CALLBACK';
         return this.jsonp.request(apiUrl).pipe(
             map((response: any) => {
-                return (response.json() as BaseResponse) || response.json();
+                return (response.json() as KladrResponse) || response.json();
             })
         );
     }

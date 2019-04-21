@@ -1,4 +1,4 @@
-export enum ContentType {
+export enum KladrContentType {
     region = 'region',
     district = 'district',
     city = 'city',

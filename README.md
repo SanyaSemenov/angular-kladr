@@ -62,11 +62,11 @@ export class AppComponent {
 
 ### Basic usage
 
-Basically, you need to create collection of type *Observable\<BaseResponse\>*.
+Basically, you need to create collection of type *Observable\<KladrResponse\>*.
 ```typescript
-public cities: Observable<BaseResponse>;
+public cities: Observable<KladrResponse>;
 ```
-**NOTE:** *BaseResponse* type should also be imported from the package
+**NOTE:** *KladrResponse* type should also be imported from the package
 
 Then create FormControl, which you will get value from in order to pass it into kladr api request.
 
@@ -91,10 +91,10 @@ constructor(private kladr$: KladrService) {
 private ngUnsubscribe = new Subject<void>();
 private regionContext: SearchContext = {
   limit: 10,
-  contentType: ContentType.region
+  contentType: KladrContentType.region
 };
 
-public cities: Observable<BaseResponse>;
+public cities: Observable<KladrResponse>;
 public cityControl: FormControl;
 ```
 
@@ -150,7 +150,7 @@ export class AppModule { }
 2. app.component.ts :
 ```typescript
 import { Component } from '@angular/core';
-import { KladrService, BaseResponse, SearchContext, ContentType, BaseModel } from 'angular-kladr';
+import { KladrService, KladrResponse, SearchContext, KladrContentType, BaseModel } from 'angular-kladr';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil, debounceTime, switchMap } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
@@ -181,10 +181,10 @@ export class AppComponent {
   private ngUnsubscribe = new Subject<void>();
   private regionContext: SearchContext = {
     limit: 10,
-    contentType: ContentType.region
+    contentType: KladrContentType.region
   };
 
-  public cities: Observable<BaseResponse>;
+  public cities: Observable<KladrResponse>;
   public cityControl: FormControl;
   public chosenCity: BaseModel;
 

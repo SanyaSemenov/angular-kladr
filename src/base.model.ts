@@ -1,4 +1,4 @@
-import { ContentType } from './content-type.enum';
+import { KladrContentType } from './content-type.enum';
 
 export class BaseModel {
     id!: string;
@@ -7,6 +7,6 @@ export class BaseModel {
     type?: string;
     typeShort?: string;
     okato?: string;
-    contentType?: ContentType;
+    contentType?: KladrContentType;
     parents?: BaseModel[];
 }
